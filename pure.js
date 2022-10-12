@@ -4,4 +4,6 @@ let removeLastNumber = (Arr) => {
   Arr2.pop();
   return Arr2;
 };
-console.log(removeLastNumber(myArr), myArr);
+// console.log(removeLastNumber(myArr), myArr);
+
+module.exports = { removeLastNumber };
