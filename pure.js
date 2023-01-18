@@ -20,10 +20,6 @@ const raiseSalaries = (arr, increase) => {
   return newArr;
 };
 
-const removePersonWithID = (people, id) => {
-  return (amendedPeople = people.filter((person) => person.id !== id));
-};
-
 //If you aren't bothered about mutation
 const raiseSalariesMutate = (arr, increase) => {
   arr.forEach((obj) => {
