@@ -5,6 +5,10 @@ const removeLastNumber = (arr) => {
 };
 // console.log(removeLastNumber(myArr), myArr);
 
+const removePersonWithID = (people, id) => {
+  return (amendedPeople = people.filter((person) => person.id !== id));
+};
+
 const raiseSalaries = (arr, increase) => {
   //to avoid mutation in nested non-primatives, we need to map and make copies of each. then we can go ahead witht the new mapped non-primative data set vvv
 
@@ -15,7 +19,10 @@ const raiseSalaries = (arr, increase) => {
   });
   return newArr;
 };
-module.exports = { removeLastNumber, raiseSalaries };
+
+const removePersonWithID = (people, id) => {
+  return (amendedPeople = people.filter((person) => person.id !== id));
+};
 
 //If you aren't bothered about mutation
 const raiseSalariesMutate = (arr, increase) => {
@@ -23,4 +30,36 @@ const raiseSalariesMutate = (arr, increase) => {
     obj.salary = obj.salary + (obj.salary / 100) * increase;
   });
   return arr;
+};
+
+//---
+const updateTasks = (person, ...tasks) => {
+  if (!Object.keys(person).length || !tasks[0].length) return { ...person };
+
+  console.log(tasks);
+  const personCopy = { ...person };
+  const tasksCopy = [...personCopy.tasks];
+  delete personCopy.tasks;
+  personCopy.tasks = tasksCopy.concat(tasks);
+
+  return personCopy;
+};
+
+//---
+const cloneObject = (target, source) => {
+  if (!Object.keys(source).length) return target;
+
+  for (let key in source) {
+    target[key] = source[key];
+  }
+
+  return target;
+};
+
+module.exports = {
+  removeLastNumber,
+  removePersonWithID,
+  raiseSalaries,
+  updateTasks,
+  cloneObject,
 };
