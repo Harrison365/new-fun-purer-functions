@@ -1,4 +1,6 @@
-let {
+//TLDR: Do regular tests. Test the output has a new reference using .not.toBe. Test original is unchanged by running function and comparing the input to a copy of the input. (if changing an array of objects, the function will need a map but the test wont, just needs an array of copied objects).
+
+const {
   removeLastNumber,
   raiseSalaries,
   removePersonWithID,
@@ -91,6 +93,7 @@ describe("raiseSalaries", () => {
   });
 });
 
+////////////////////////////////////////////Other///////////////////////////////////////////
 ///REMOVE PERSON WITH ID
 describe("removePersonWithID", () => {
   test("if passed an empty array, function will return an empty array", () => {
