@@ -28,34 +28,8 @@ const raiseSalariesMutate = (arr, increase) => {
   return arr;
 };
 
-//---
-const updateTasks = (person, ...tasks) => {
-  if (!Object.keys(person).length || !tasks[0].length) return { ...person };
-
-  console.log(tasks);
-  const personCopy = { ...person };
-  const tasksCopy = [...personCopy.tasks];
-  delete personCopy.tasks;
-  personCopy.tasks = tasksCopy.concat(tasks);
-
-  return personCopy;
-};
-
-//---
-const cloneObject = (target, source) => {
-  if (!Object.keys(source).length) return target;
-
-  for (let key in source) {
-    target[key] = source[key];
-  }
-
-  return target;
-};
-
 module.exports = {
   removeLastNumber,
   removePersonWithID,
   raiseSalaries,
-  updateTasks,
-  cloneObject,
 };
