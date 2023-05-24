@@ -3,7 +3,6 @@ const removeLastNumber = (arr) => {
   arr2.pop();
   return arr2;
 };
-// console.log(removeLastNumber(myArr), myArr);
 
 const removePersonWithID = (people, id) => {
   return (amendedPeople = people.filter((person) => person.id !== id));
