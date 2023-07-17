@@ -9,7 +9,7 @@ const removePersonWithID = (people, id) => {
 };
 
 const raiseSalaries = (arr, increase) => {
-  //to avoid mutation in nested non-primatives, we need to map and make copies of each. then we can go ahead witht the new mapped non-primative data set vvv
+  //to avoid mutation in nested non-primatives, we need to map and make copies of each. Then we can go ahead with the new mapped non-primative data set vvv
 
   let newArr = arr.map((obj) => {
     let objCopy = { ...obj };
