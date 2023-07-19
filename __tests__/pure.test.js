@@ -4,6 +4,7 @@ const {
   removeLastNumber,
   raiseSalaries,
   removePersonWithID,
+  updateTasks,
 } = require("../pure");
 
 //DO TESTS FOR .pop() functionality as usual... then...
@@ -151,5 +152,39 @@ describe("removePersonWithID", () => {
       { id: 3, name: "paul r" },
     ];
     expect(removePersonWithID(input, 2)).not.toBe(input);
+  });
+});
+
+describe.only("updateTasks", () => {
+  test("if passed a person with no tasks, tasks will be unchanged", () => {
+    const person = { name: "Jake", tasks: [] };
+    expect(updateTasks(person)).toEqual({ name: "Jake", tasks: [] });
+  });
+  test("if passed a person with 1 additional task, task will be added", () => {
+    const person = { name: "Jake", tasks: ["eat"] };
+    expect(updateTasks(person, "sleep")).toEqual({
+      name: "Jake",
+      tasks: ["eat", "sleep"],
+    });
+  });
+  test("if passed a person with 2 additional tasks, tasks will be added", () => {
+    const person = { name: "Jake", tasks: ["eat"] };
+    expect(updateTasks(person, "sleep", "rave")).toEqual({
+      name: "Jake",
+      tasks: ["eat", "sleep", "rave"],
+    });
+  });
+  test("person returned should not be the same reference as the person passed in", () => {
+    const person = { name: "Jake", tasks: ["eat"] };
+    expect(updateTasks(person, "sleep", "rave")).not.toBe(person);
+  });
+  test("person.tasks returned should not be the same reference as the person.tasks passed in", () => {
+    const person = { name: "Jake", tasks: ["eat"] };
+    expect(updateTasks(person, "sleep", "rave").tasks).not.toBe(person.tasks);
+  });
+  test("person.tasks in original person should not be mutated", () => {
+    const person = { name: "Jake", tasks: ["eat"] };
+    updateTasks(person, "sleep", "rave");
+    expect(person.tasks).toEqual(["eat"]);
   });
 });

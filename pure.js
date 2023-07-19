@@ -27,8 +27,16 @@ const raiseSalariesMutate = (arr, increase) => {
   return arr;
 };
 
+const updateTasks = (person, ...tasks) => {
+  let personCopy = { ...person };
+  personCopy.tasks = [...person.tasks, ...tasks];
+  return personCopy;
+};
+
+updateTasks({ name: "Alice", tasks: ["clean", "tidy"] }, "cook", "wash");
 module.exports = {
   removeLastNumber,
   removePersonWithID,
   raiseSalaries,
+  updateTasks,
 };
