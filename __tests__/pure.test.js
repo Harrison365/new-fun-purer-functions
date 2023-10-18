@@ -155,7 +155,7 @@ describe("removePersonWithID", () => {
   });
 });
 
-describe.only("updateTasks", () => {
+describe("updateTasks", () => {
   test("if passed a person with no tasks, tasks will be unchanged", () => {
     const person = { name: "Jake", tasks: [] };
     expect(updateTasks(person)).toEqual({ name: "Jake", tasks: [] });
